@@ -1,0 +1,13 @@
+touch_panel.c:45:6:TP_Init	4	static
+touch_panel.c:115:6:DelayUS	24	static
+touch_panel.c:131:13:WR_CMD	16	static
+touch_panel.c:153:12:RD_AD	32	static
+touch_panel.c:173:5:Read_X	16	static
+touch_panel.c:193:5:Read_Y	16	static
+touch_panel.c:214:6:TP_GetAdXY	24	static
+touch_panel.c:233:6:TP_DrawPoint	16	static
+touch_panel.c:250:6:DrawCross	16	static
+touch_panel.c:267:13:Read_Ads7846	120	static
+touch_panel.c:349:17:setCalibrationMatrix	40	static
+touch_panel.c:396:17:getDisplayPoint	48	static
+touch_panel.c:433:6:TouchPanel_Calibrate	24	static
