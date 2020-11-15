@@ -30,12 +30,26 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/times.h>
-
+#include "stm32f407xx.h"
+#include "main.h"
+#include "dma.h"
+#include "usart.h"
 
 /* Variables */
-//#undef errno
-extern int errno;
-extern int __io_putchar(int ch) __attribute__((weak));
+extern UART_HandleTypeDef huart2; // access huart1 instance
+//extern int __io_putchar(int ch) __attribute__((weak)); // comment this out
+
+//__attribute__((weak))
+int __io_putchar(int ch)
+{
+    //HAL_StatusTypeDef status = HAL_UART_Transmit_DMA(&huart2, (uint8_t *)&ch, 1);
+     HAL_StatusTypeDef status = HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
+	//HAL_StatusTypeDef status = HAL_UART_Transmit_IT(&huart2, (uint8_t *)&ch, 1);
+	//HAL_Delay(50);
+	return (status == HAL_OK ? ch : 0);
+     //return (ch);
+}
+
 extern int __io_getchar(void) __attribute__((weak));
 
 register char * stack_ptr asm("sp");
